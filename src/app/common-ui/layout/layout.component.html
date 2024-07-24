@@ -1,0 +1,35 @@
+<div class="header">
+    <h1>Геоинформация</h1>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" checked=true />
+            ru
+        </label>
+        <label>
+            <input type="checkbox" checked=false />
+            en
+        </label>
+    </div>
+</div>
+<div class="search">
+    <mat-form-field class="example-form-field" appearance="outline">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput placeholder="Поиск">
+    </mat-form-field>
+</div>
+
+<div class="buttons">
+
+    <button  mat-button [class.active]="activeButton === 'countries'" (click)="setActiveButton('countries')">
+        Страны
+    </button>
+    <button  mat-button [class.active]="activeButton === 'cities'" (click)="setActiveButton('cities')">
+        Города
+    </button>
+
+
+</div>
+
+<div>
+    <router-outlet></router-outlet>
+</div>
