@@ -26,13 +26,11 @@ export class CitiesComponent {
       console.log("IDDDD = ", id)
       if (id) {
         this.dataService.getCity(id).subscribe(val => {
-          console.log("srt = ", val);
           this.dataSource = val.data;
-          console.log("val = ", val);
-          console.log("city = ", this.dataSource);
+  
         });
       } else {
-        console.error('Name and/or ID query parameters are missing');
+        console.error('Ошибка');
       }
     });
   }

@@ -29,35 +29,24 @@ export class TableCityComponent implements OnInit {
     this.dataService.getCountry().subscribe(val => {
       this.selectData = val.data;
       console.log('selectData = ', this.selectData);
-
-      // Если уже есть countryName в параметрах, используем его
-      this.activatedRoute.queryParams.subscribe(params => {
-        const countryParam = params['country'];
-        if (countryParam) {
-          this.countryName = countryParam;
-          this.fetchCitiesByCountry(countryParam);
-        }
-      });
+    
     });
   }
 
   onCountryChange(newCountry: string) {
-    // Обновляем query-параметры URL
     this.router.navigate([], {
       relativeTo: this.activatedRoute,
       queryParams: { country: newCountry },
       queryParamsHandling: 'merge'
     });
-
-    // Получаем данные городов для выбранной страны
     this.fetchCitiesByCountry(newCountry);
   }
 
   private fetchCitiesByCountry(countryName: string) {
-    // Находим код страны по названию
     const country = this.selectData.find(c => c.name === countryName);
+    console.log("rr = ", country)
     if (country) {
-      this.dataService.getCity(country.code).subscribe(val => {
+      this.dataService.getCity(country.wikiDataId).subscribe(val => {
         this.dataSource = val.data;
         console.log('dataSource = ', this.dataSource);
       });
