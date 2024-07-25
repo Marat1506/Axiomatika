@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { TableComponent } from '../../common-ui/table/table.component';
+import { TableCountryComponent } from '../../common-ui/tableCountry/tableCountry.component';
 import { ServicesService } from '../../data/services/services.service';
 import { CountryData } from '../../data/services/interface';
 
@@ -9,7 +9,7 @@ import { CountryData } from '../../data/services/interface';
 @Component({
   selector: 'app-country',
   standalone: true,
-  imports: [TableComponent],
+  imports: [TableCountryComponent],
   templateUrl: './country.component.html',
   styleUrl: './country.component.css'
 })
@@ -21,7 +21,8 @@ export class CountryComponent {
 
   constructor() {
     this.dataService.getCountry().subscribe(val => {
-      this.dataSource =  val.data;
+      this.dataSource = val.data;
+      console.log("gg = ", this.dataSource)
     });
   }
 }

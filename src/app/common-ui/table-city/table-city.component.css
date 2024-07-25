@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+  }
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+  }
+
+.select {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
