@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>{{data.city.name}}</h1>
+
+<div mat-dialog-content>
+    <div class="flex">
+        <p>{{data.countryName}}</p>
+        <div class="flex-column">
+            <p>регион</p>
+            <p class="data">{{data.city.region}}</p>
+        </div>
+    </div>
+    <div class="flex">
+        <div class="flex-column">
+            <p>Население</p>
+            <p class="data">{{data.city.population}}</p>
+        </div>
+      
+        <div class="flex-column">
+            <p>Дата и время</p>
+            <p class="data">gg</p>
+        </div>
+    </div>
+    <div class="flex">
+        <div>
+            <p>Долгота</p>
+            <p class="data">{{data.city.latitude}}</p>
+        </div>
+       
+        <div class="flex-column">
+            <p>Широта</p>
+            <p class="data">{{data.city.longitude}}</p>
+        </div>
+    </div>
+ 
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

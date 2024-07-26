@@ -7,11 +7,12 @@ import { ServicesService } from '../../data/services/services.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { CityDetailsDialogComponent } from '../../city-details-dialog/city-details-dialog.component';
 @Component({
   selector: 'app-table-city',
   standalone: true,
-  imports: [MatTableModule, MatIconModule, MatButtonModule, FormsModule, CommonModule],
+  imports: [MatTableModule, MatIconModule, MatButtonModule, FormsModule, CommonModule, MatDialogModule],
   templateUrl: './table-city.component.html',
   styleUrls: ['./table-city.component.css']
 })
@@ -23,6 +24,7 @@ export class TableCityComponent implements OnInit {
   selectData: CountryData[] = [];
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
+  dialog = inject(MatDialog)
 
   ngOnInit() {
     // Получаем список стран при инициализации компонента
@@ -51,5 +53,14 @@ export class TableCityComponent implements OnInit {
         console.log('dataSource = ', this.dataSource);
       });
     }
+  }
+
+  openCityDetails(city: any, countryName: string) {
+    console.log("cityyy = ", city)
+    // Открываем модальное окно с информацией о городе
+    this.dialog.open(CityDetailsDialogComponent, {
+      data: {city, countryName},
+     
+    });
   }
 }

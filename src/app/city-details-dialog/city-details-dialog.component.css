@@ -1,0 +1,13 @@
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.data{
+    margin-top: -15px;
+}
