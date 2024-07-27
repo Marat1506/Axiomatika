@@ -4,15 +4,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { CountryData } from '../../data/services/interface';
 import { ServicesService } from '../../data/services/services.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CityDetailsDialogComponent } from '../../city-details-dialog/city-details-dialog.component';
+import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-table-city',
   standalone: true,
-  imports: [MatTableModule, MatIconModule, MatButtonModule, FormsModule, CommonModule, MatDialogModule],
+  imports: [MatTableModule, MatIconModule, MatButtonModule, FormsModule, CommonModule, MatDialogModule, MatInputModule, ReactiveFormsModule],
   templateUrl: './table-city.component.html',
   styleUrls: ['./table-city.component.css']
 })
@@ -62,5 +63,10 @@ export class TableCityComponent implements OnInit {
       data: {city, countryName},
      
     });
+  }
+  search(cityName: string) {
+    if (cityName) {
+      this.dataSource = this.dataSource.filter(city => city.name.toLowerCase() === cityName.toLowerCase());
+    }
   }
 }

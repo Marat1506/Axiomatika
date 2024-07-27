@@ -1,7 +1,9 @@
 <div class="search">
     <mat-form-field class="example-form-field" appearance="outline">
-        <mat-icon matPrefix>search</mat-icon>
-        <input matInput placeholder="Поиск">
+        <button mat-icon-button matSuffix (click)="search(searchInput.value)">
+            <mat-icon>search</mat-icon>
+        </button>
+        <input matInput #searchInput placeholder="Поиск">
     </mat-form-field>
 </div>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

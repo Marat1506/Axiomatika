@@ -39,4 +39,10 @@ export class TableCountryComponent implements OnChanges {
     console.log("iodkdkdkfld")
     this.router.navigate(['/cities'], {queryParams: {country: countryName, countryId: countryId}})
   }
+
+  search(countryName: string) {
+    if (countryName) {
+      this.dataSource = this.dataSource.filter(country => country.name.toLowerCase() === countryName.toLowerCase());
+    }
+  }
 }
