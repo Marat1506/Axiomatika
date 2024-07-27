@@ -58,7 +58,6 @@ export class TableCityComponent implements OnInit {
 
   openCityDetails(city: any, countryName: string) {
     console.log("cityyy = ", city)
-    // Открываем модальное окно с информацией о городе
     this.dialog.open(CityDetailsDialogComponent, {
       data: {city, countryName},
      
